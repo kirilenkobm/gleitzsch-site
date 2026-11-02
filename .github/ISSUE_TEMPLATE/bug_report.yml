@@ -1,0 +1,37 @@
+name: Bug report
+description: Something is broken in the app or on this website.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for helping! This issue is public. Do not include private photos or personal information."
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where did it happen?
+      options: [iPhone app, Website]
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include steps to reproduce and what you expected instead.
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and software
+      description: iPhone model, iOS version and Gleitzsch version/build (from About). For the website, browser and device.
+  - type: textarea
+    id: recipe
+    attributes:
+      label: Preset or recipe (optional)
+      description: Paste copied recipe values if the issue depends on a particular effect.
+      render: text
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else? (optional)
+      description: Only attach screenshots you are comfortable making public.

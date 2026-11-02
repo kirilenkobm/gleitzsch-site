@@ -1,0 +1,13 @@
+name: Idea or question
+description: Share an idea, ask a question or describe an awkward moment.
+body:
+  - type: markdown
+    attributes:
+      value: "This is a public conversation. Please keep private information out of it."
+  - type: textarea
+    id: idea
+    attributes:
+      label: What’s on your mind?
+      description: What would you like to make or do with Gleitzsch?
+    validations:
+      required: true
