@@ -1,1 +1,5 @@
 blank_issues_enabled: true
+contact_links:
+  - name: Private support or privacy question
+    url: https://kirilenkobm.github.io/gleitzsch-site/support.html
+    about: Contact the developer by email instead of posting personal information publicly.

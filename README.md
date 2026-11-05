@@ -10,6 +10,8 @@ Thanks, Fourier, for the series and transforms. Sorry about what we’re doing w
 
 This repository hosts the project’s GitHub Pages website and collects [issues and feedback](https://github.com/kirilenkobm/gleitzsch-site/issues).
 
+For private support or privacy questions: [email Bogdan](mailto:bogdan.kirilenko+gleitzsch@proton.me).
+
 Made with 🔮 in Berlin.
 
 With help from Codex and my ability to express what I feel.

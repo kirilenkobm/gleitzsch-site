@@ -4,7 +4,7 @@ title: "[Bug]: "
 body:
   - type: markdown
     attributes:
-      value: "Thanks for helping! This issue is public. Do not include private photos or personal information."
+      value: "Thanks for helping! This issue is public. Do not include private photos or personal information. For private support, email bogdan.kirilenko+gleitzsch@proton.me."
   - type: dropdown
     id: area
     attributes:
