@@ -1,5 +1,5 @@
 name: Idea or question
-description: Share an idea, ask a question or describe an awkward moment.
+description: Suggest another way to mess the picture up, ask a question or describe an awkward moment. A reference helps.
 body:
   - type: markdown
     attributes:
@@ -8,6 +8,6 @@ body:
     id: idea
     attributes:
       label: What’s on your mind?
-      description: What would you like to make or do with Gleitzsch?
+      description: Another way to mess the picture up, or something awkward about the camera. A reference — a still, a clip or a link — helps. Don’t attach private photographs.
     validations:
       required: true
