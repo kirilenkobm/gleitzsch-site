@@ -14,7 +14,7 @@ For private support or privacy questions: [email Bogdan](mailto:bogdan.kirilenko
 
 Made with 🔮 in Berlin.
 
-With help from Codex and my ability to express what I feel.
+Thanks to Codex for helping me turn what I feel into code, and to Cursor for a hand here and there.
 
 — [Bogdan](https://github.com/kirilenkobm)
 
