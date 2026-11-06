@@ -4,6 +4,8 @@
 
 An iPhone camera somewhere between an app and an art project. No AI. Just algorithmic mischief.
 
+![Glitched still: glowing digits on a dark frame with purple scan bars](assets/glitch-still.jpg)
+
 Anyone with an iPhone can be part of it: point, distort, keep something strange. The pictures you make are part of the project. Random wanders through the effects. Custom lets you stop it when you find something you like.
 
 Thanks, Fourier, for the series and transforms. Sorry about what we’re doing with them. All image effects run on your iPhone using decades-old signal-processing maths, with help from Apple’s Metal, Accelerate and the GPU.
