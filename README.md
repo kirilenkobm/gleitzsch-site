@@ -1,23 +1,19 @@
 # Gleitzsch
 
-An iPhone camera somewhere between an app and an art project: no AI, just decades-old algorithms.
+An iPhone camera somewhere between an app and an art project.
 
 ![Glitched still: glowing digits on a dark frame with purple scan bars](assets/glitch-still.jpg)
 
+Point, distort, keep something strange. Whatever you make is part of the project. **Random** explores the effects for you; **Custom** lets you take control.
+
+No AI, just decades-old signal-processing algorithms running in real time on your iPhone, powered by Apple's **Accelerate** and **Metal** frameworks. Special thanks to Fourier for the mathematics. Sorry about what we're doing with it.
+
 [Visit the Gleitzsch website](https://kirilenkobm.github.io/gleitzsch-site/index.html).
 
-Anyone with an iPhone can be part of it: point, distort, keep something strange. The pictures you make are part of the project. Random wanders through the effects. Custom lets you stop it when you find something you like.
+This repository hosts the website and collects [issues and feedback](https://github.com/kirilenkobm/gleitzsch-site/issues). For private support or privacy questions, [email me](mailto:bogdan.kirilenko+gleitzsch@proton.me).
 
-Thanks, Fourier, for the series and transforms. Sorry about what we’re doing with them. All image effects run on your iPhone using decades-old signal-processing maths, with help from Apple’s Metal, Accelerate and the GPU.
-
-This repository hosts the project’s GitHub Pages website and collects [issues and feedback](https://github.com/kirilenkobm/gleitzsch-site/issues).
-
-For private support or privacy questions: [email Bogdan](mailto:bogdan.kirilenko+gleitzsch@proton.me).
-
-Thanks to Codex for helping me turn what I feel into code, and to Cursor for a hand here and there.
+Thanks to **Codex** for helping me express what I feel in code, and to **Cursor** for helping along the way.
 
 ---
 
-© 2026 Bogdan Kirilenko.
-
-Made with 🔮 in Berlin.
+© 2026 Bogdan Kirilenko. Made with 🔮 in Berlin.
