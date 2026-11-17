@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#10110e">
+  <title>Made with Gleitzsch</title>
+  <meta name="description" content="A gallery of photographs made with the Gleitzsch camera and photo editor.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/site.css">
+  <style>
+    .gallery-heading {
+      padding: clamp(40px, 5.8vw, 88px) 0 clamp(26px, 4vw, 60px);
+    }
+
+    .gallery-heading h1 {
+      margin: 0;
+      font-size: clamp(48px, 7.7vw, 108px);
+    }
+
+    .gallery-heading .intro {
+      max-width: none;
+      margin: 20px 0 0;
+    }
+
+    .gallery {
+      display: grid;
+      gap: clamp(10px, 1.2vw, 20px);
+      padding-bottom: clamp(50px, 7vw, 104px);
+    }
+
+    .gallery-row {
+      display: grid;
+      grid-template-columns: var(--columns, 1.5fr .75fr 1.329fr);
+      gap: inherit;
+      align-items: start;
+    }
+
+    .gallery-row:nth-child(2) {
+      --columns: .75fr 1.5fr 1.346fr;
+    }
+
+    .gallery-row:nth-child(3) {
+      --columns: 1.778fr 1.425fr .75fr;
+    }
+
+    .gallery-row a,
+    .gallery-row button {
+      display: block;
+      min-width: 0;
+      cursor: zoom-in;
+      outline: 1px solid var(--line);
+    }
+
+    .gallery-row button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .gallery-row a:hover,
+    .gallery-row button:hover {
+      outline-color: var(--muted);
+    }
+
+    .gallery-row a:focus-visible,
+    .gallery-row button:focus-visible {
+      outline: 2px solid var(--acid);
+      outline-offset: 4px;
+    }
+
+    .gallery-row img,
+    .photo-dialog img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .photo-frame {
+      display: block;
+    }
+
+    .photo-frame--profile {
+      --natural-width: 1080px;
+      --ratio: 1.5;
+    }
+
+    .photo-dialog {
+      max-height: none;
+      max-width: none;
+      padding: 12px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--paper);
+    }
+
+    .photo-dialog::backdrop { background: #080907e8; }
+
+    .photo-dialog .photo-frame {
+      width: min(var(--natural-width), calc(100vw - 60px), calc((100dvh - 110px) * var(--ratio)));
+    }
+
+    .photo-dialog button {
+      display: block;
+      margin: 0 0 10px auto;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--paper);
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      .gallery-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <header>
+      <a class="wordmark" href="index.html" aria-label="Gleitzsch home">GLEITZSCH<span class="dot" aria-hidden="true"></span></a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Project</a>
+        <a href="gallery.html" aria-current="page">Gallery</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </header>
+    <main id="main">
+      <div class="gallery-heading">
+        <h1>Made with <em>Gleitzsch</em></h1>
+        <p class="intro">Photographs from the Gleitzsch camera and photo editor.</p>
+      </div>
+      <div class="gallery">
+        <div class="gallery-row">
+          <a href="assets/gallery/IMG_4102.PNG"><img src="assets/gallery/IMG_4102.PNG" width="1080" height="720" alt="Rooftops under a pixelated blue sky"></a>
+          <a href="assets/gallery/IMG_4042.PNG"><img src="assets/gallery/IMG_4042.PNG" width="720" height="960" alt="An angular building warped by black and white scanlines"></a>
+          <a href="assets/gallery/IMG_4026.JPG"><img src="assets/gallery/IMG_4026.JPG" width="933" height="702" alt="A columned façade fringed in neon pink and green"></a>
+        </div>
+        <div class="gallery-row">
+          <a href="assets/gallery/IMG_4152.JPG"><img src="assets/gallery/IMG_4152.JPG" width="720" height="960" alt="A brightly lit doorway and dark reflections behind vertical purple interference"></a>
+          <button type="button" aria-haspopup="dialog">
+            <span class="photo-frame photo-frame--profile">
+              <img src="assets/gallery/profile-tracking.png" width="1080" height="720" alt="A silhouette by a bright window with a band of signal noise across the face">
+            </span>
+          </button>
+          <a href="assets/gallery/photo_2026-11-08%2017.20.55.jpeg"><img src="assets/gallery/photo_2026-11-08%2017.20.55.jpeg" width="938" height="697" alt="Dark hills below clouds streaked with green and pink interference"></a>
+        </div>
+        <div class="gallery-row">
+          <a href="assets/gallery/IMG_3984.JPG"><img src="assets/gallery/IMG_3984.JPG" width="1280" height="720" alt="Glowing digits cut through the dark in a band of rainbow scanlines"></a>
+          <a href="assets/gallery/2026-11-18%2000.03.13.jpg"><img src="assets/gallery/2026-11-18%2000.03.13.jpg" width="1026" height="720" alt="A dark cityscape outlined in blue and gold beneath rippling clouds"></a>
+          <a href="assets/gallery/IMG_4181.JPG"><img src="assets/gallery/IMG_4181.JPG" width="720" height="960" alt="A yellow tram on a pixelated city street at night"></a>
+        </div>
+      </div>
+      <dialog class="photo-dialog" aria-label="Enlarged photograph">
+        <form method="dialog"><button autofocus>Close</button></form>
+        <div class="photo-dialog-content"></div>
+      </dialog>
+    </main>
+    <footer>
+      <span>Made with 🔮 in Berlin.<br>With help from Codex and my ability to express what I feel.</span>
+      <span>A project by <a href="https://github.com/kirilenkobm">Bogdan Kirilenko</a></span>
+      <a href="https://github.com/kirilenkobm/gleitzsch-site">Project hub ↗</a>
+    </footer>
+  </div>
+  <script>
+    const photoDialog = document.querySelector('.photo-dialog');
+    const photoDialogContent = photoDialog.querySelector('.photo-dialog-content');
+
+    for (const trigger of document.querySelectorAll('.gallery-row button')) {
+      trigger.addEventListener('click', () => {
+        photoDialogContent.replaceChildren(trigger.firstElementChild.cloneNode(true));
+        photoDialog.showModal();
+      });
+    }
+  </script>
+</body>
+</html>
