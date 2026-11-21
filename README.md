@@ -8,7 +8,7 @@ Point, distort, keep something strange. Whatever you make is part of the project
 
 No AI, just decades-old signal-processing algorithms running on your phone’s CPU and GPU. Images stay on your device. Special thanks to Fourier for the mathematics. Sorry about what we're doing with it.
 
-In development for **iOS and Android**. The Android port is a work in progress. There are no public downloads yet; see [current availability](https://kirilenkobm.github.io/gleitzsch-site/index.html#availability).
+In development for **iOS and Android**. An early **Android alpha 4.8.0** is available as a direct APK download: **29.2 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://kirilenkobm.github.io/gleitzsch-site/index.html#availability).
 
 [Visit the Gleitzsch website](https://kirilenkobm.github.io/gleitzsch-site/index.html).
 
