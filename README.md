@@ -1,12 +1,14 @@
 # Gleitzsch
 
-An iPhone camera somewhere between an app and an art project.
+An experimental camera and photo editor somewhere between an app and an art project.
 
 ![Glitched still: glowing digits on a dark frame with purple scan bars](assets/glitch-still.jpg)
 
 Point, distort, keep something strange. Whatever you make is part of the project. **Random** explores the effects for you; **Custom** lets you take control.
 
-No AI, just decades-old signal-processing algorithms running in real time on your iPhone, powered by Apple's **Accelerate** and **Metal** frameworks. Special thanks to Fourier for the mathematics. Sorry about what we're doing with it.
+No AI, just decades-old signal-processing algorithms running on your phone’s CPU and GPU. Images stay on your device. Special thanks to Fourier for the mathematics. Sorry about what we're doing with it.
+
+In development for **iOS and Android**. The Android port is a work in progress. There are no public downloads yet; see [current availability](https://kirilenkobm.github.io/gleitzsch-site/index.html#availability).
 
 [Visit the Gleitzsch website](https://kirilenkobm.github.io/gleitzsch-site/index.html).
 
