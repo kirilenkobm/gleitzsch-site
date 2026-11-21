@@ -3,7 +3,7 @@ description: Suggest another way to mess the picture up, ask a question or descr
 body:
   - type: markdown
     attributes:
-      value: "This is a public conversation. Please keep private information out of it. For private support, email bogdan.kirilenko+gleitzsch@proton.me."
+      value: "This is a public conversation. Please keep private information out of it. For private support, email gleitzsch@mail.online-impressum.de."
   - type: textarea
     id: idea
     attributes:
