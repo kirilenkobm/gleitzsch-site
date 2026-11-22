@@ -15,6 +15,11 @@ MAX_FILES = 20_000
 
 
 def build():
+    subprocess.run(
+        ["python3", str(ROOT / "tools/site-assets.py"), "--check"],
+        cwd=ROOT,
+        check=True,
+    )
     manifest = json.loads((ROOT / "editor/release.json").read_text())
     for name, expected in manifest["files"].items():
         relative = PurePosixPath(name)
