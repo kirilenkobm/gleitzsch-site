@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Gleitzsch · Photo editor</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="identity"><a class="wordmark" href="https://kirilenkobm.github.io/gleitzsch-site/" target="_blank" rel="noopener" aria-label="Gleitzsch website">GLEITZSCH<span>✳</span></a><span class="edition">PHOTO EDITOR</span></div>
+      <div class="header-actions"><button id="about-button" class="quiet" aria-label="About Gleitzsch">About</button><button class="primary open-photo">Open photo <span class="shortcut">⌘O</span></button></div>
+    </header>
+    <main class="workspace">
+      <aside class="library" aria-label="Looks">
+        <div class="recipe-modes" role="group" aria-label="Recipe mode"><button id="random" aria-pressed="false" disabled>Random</button><button id="custom" aria-pressed="false" disabled>Custom</button></div>
+        <p class="random-hint">Random explores.<br>Custom keeps this mix.</p>
+        <div id="presets" class="preset-list" aria-label="Presets"></div>
+        <div class="library-bottom"><button class="text-button about-processing">On-device processing</button><button id="test-card" class="text-button">Try a test card</button></div>
+      </aside>
+      <section class="viewer" aria-label="Photo preview">
+        <div class="viewer-heading"><span id="photo-name">NO SOURCE</span><button id="text-toggle" class="quiet" aria-pressed="false" disabled>Text</button><span id="view-mode">READY WHEN YOU ARE</span></div>
+        <div id="drop-zone" class="stage">
+          <canvas id="preview" aria-label="Processed photo preview" hidden></canvas>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <h2>Open a photograph</h2>
+            <p>Drop a JPEG or PNG here,<br>or choose a file.</p>
+            <button class="primary open-photo">Open photo</button>
+          </div>
+          <div id="loading" class="loading" hidden>Opening photo…</div>
+          <div id="drop-hint" class="drop-hint" hidden>Drop to open</div>
+          <div id="tape-overlay" class="tape-overlay" hidden></div>
+        </div>
+        <div class="transport">
+          <div class="view-actions"><button id="pause" class="transport-button" disabled><span id="pause-icon">Ⅱ</span><span id="pause-label">Pause</span></button><button id="original" class="quiet" aria-pressed="false" disabled>Original</button></div>
+          <label class="speed-control" for="playback-speed"><span>Speed <output id="speed-value">80%</output></span><input id="playback-speed" type="range" min="1" max="100" step="1" value="80" disabled></label>
+          <div class="geometry-actions"><button id="axis" class="quiet" disabled>Vertical</button><button id="rotate" class="quiet" disabled aria-label="Rotate photo clockwise">↻ <span>Rotate</span></button></div>
+          <button id="save" class="primary save-button" disabled>Save frame <span>PNG</span></button>
+        </div>
+        <div class="viewer-footer"><span id="dimensions">Saves a new PNG. Your original stays unchanged.</span></div>
+        <p id="notice" class="notice" role="status" aria-live="polite"></p>
+      </section>
+      <aside class="adjustments" aria-label="Effect controls">
+        <div class="adjustments-heading"><h2>Adjustments</h2><button id="reset" class="text-button" disabled>Reset effects</button></div>
+        <section class="image-adjustment"><label for="photo-exposure">Exposure <output id="exposure-value">0.0 EV</output></label><input id="photo-exposure" type="range" min="-3" max="3" step="0.1" value="0" title="Brightness before text and effects. Double-click to reset." disabled></section>
+        <section id="tape-panel" class="tape-panel" aria-label="Text on tape" hidden>
+          <div class="tape-toolbar"><strong>Text</strong><button id="tape-add" class="quiet">+ Add</button><button id="tape-delete" class="quiet">Delete</button><button id="tape-done" class="quiet">Done</button></div>
+          <label for="tape-select">Tape</label><select id="tape-select"></select>
+          <label for="tape-text">Text</label><input id="tape-text" type="text" maxlength="200" placeholder="Write something" autocomplete="off" spellcheck="false">
+          <label for="tape-size">Size</label><input id="tape-size" type="range" min="0.015" max="0.15" step="0.001" value="0.045">
+          <label for="tape-angle">Angle</label><input id="tape-angle" type="range" min="-180" max="180" step="1" value="0">
+          <p>Up to 100 characters per tape. Drag the outline to move it. Arrow keys move it; Shift makes a larger step. Text goes through the effects with your photo.</p>
+        </section>
+        <div id="controls" class="control-groups"></div>
+        <div class="adjustments-footer"><span id="engine-state">Starting the editor…</span><span id="fps" hidden>— FPS</span></div>
+      </aside>
+    </main>
+    <footer class="bottom-bar"><span><a href="https://kirilenkobm.github.io/gleitzsch-site/" target="_blank" rel="noopener">Gleitzsch</a> · <a href="https://kirilenkobm.github.io/gleitzsch-site/support.html" target="_blank" rel="noopener">Support</a> · <a href="./privacy.html" target="_blank" rel="noopener">Privacy</a> · <a href="https://mein.online-impressum.de/gleitzsch/" target="_blank" rel="noopener">Impressum</a></span><span id="version">GLEITZSCH</span></footer>
+    <input id="photo-input" type="file" accept="image/jpeg,image/png" hidden>
+    <dialog id="about">
+      <div class="dialog-heading"><h2>Gleitzsch, in your browser.</h2><button id="close-about" class="quiet" aria-label="Close about">✕</button></div>
+      <p>Open a photograph, explore effects with Random or choose a preset, then keep a moment with Pause and Save frame. Saving creates a separate PNG and leaves your original untouched.</p>
+      <h3>Processing and privacy</h3>
+      <p>WebGPU uses your device’s graphics processor, and WebAssembly runs image processing in your browser. Your photographs and effect settings stay on your device. They are not sent to the developer or uploaded for processing. No account, analytics or tracking scripts are included.</p>
+      <p>Once the editor has finished loading, you can keep editing and saving without an internet connection. Reopening the editor offline is not supported yet. Closing or reloading the page clears the current photo and unsaved edit.</p>
+      <p>The website host receives ordinary page requests to deliver the editor, such as your IP address. Those requests do not contain your photographs. Optional support links open external services.</p>
+      <p><a href="./privacy.html" target="_blank" rel="noopener">Read the web editor’s privacy policy</a>.</p>
+      <p>Random follows the phone editor’s recipe journeys. Custom keeps the displayed mix for manual adjustment. Pause and Save hold the shown frame; Continue in Random starts a fresh journey from it.</p>
+      <p>Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text, then drag its outline or adjust its size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
+      <p>Photos are opened as a working copy, up to 720 pixels on the shorter side and 2048 on the longer side. PNG exports use that working resolution. Video and saved custom slots are not available in this web version yet.</p>
+      <details class="technical-details"><summary>Technical details</summary><pre id="diagnostics"></pre><button id="download-report" class="secondary">Save diagnostics</button></details>
+    </dialog>
+  </body>
+</html>

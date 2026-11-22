@@ -9,7 +9,7 @@ body:
     id: area
     attributes:
       label: Where did it happen?
-      options: [iOS app, Android app, Website]
+      options: [iOS app, Android app, Web editor, Website]
     validations:
       required: true
   - type: textarea
@@ -23,7 +23,7 @@ body:
     id: device
     attributes:
       label: Device and software
-      description: Phone model, iOS or Android version, and Gleitzsch version/build (from About). For the website, browser and device.
+      description: Phone model, iOS or Android version, and Gleitzsch version/build (from About). For the web editor or website, browser, operating system and device; include the editor build from About → Technical details when relevant.
   - type: textarea
     id: recipe
     attributes:
