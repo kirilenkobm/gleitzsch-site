@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <base href="./r/b582a29d239d/">
+    <base href="./r/ca207c928f69/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
@@ -10,14 +10,26 @@
     <title>Gleitzsch · Photo editor</title>
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="./styles.css">
-    <script type="module" src="./src/app.js"></script>
+    <script defer src="./src/bootstrap.js"></script>
   </head>
   <body>
     <header class="topbar">
       <div class="identity"><a class="wordmark" href="https://kirilenkobm.github.io/gleitzsch-site/" target="_blank" rel="noopener" aria-label="Gleitzsch website">GLEITZSCH<span>✳</span></a><span class="edition">PHOTO EDITOR</span></div>
-      <div class="header-actions"><button id="about-button" class="quiet" aria-label="About Gleitzsch">About</button><button class="primary open-photo">Open photo <span class="shortcut">⌘O</span></button></div>
+      <div class="header-actions"><button id="about-button" class="quiet" aria-label="About Gleitzsch" disabled>About</button><button class="primary open-photo" disabled>Open photo <span class="shortcut">⌘O</span></button></div>
     </header>
-    <main class="workspace">
+    <main id="startup" class="startup" aria-labelledby="startup-title" aria-busy="true" data-state="loading">
+      <div class="startup-card">
+        <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <h1 id="startup-title">Loading editor…</h1>
+        <p id="startup-message" role="status" aria-live="polite">Preparing effects on your device.</p>
+        <div class="startup-spinner" aria-hidden="true"></div>
+        <p class="startup-help">Taking too long? <a href="./index.html">Reload editor</a>.</p>
+        <button id="startup-retry" class="primary" hidden>Reload editor</button>
+        <details id="startup-details" class="technical-details" hidden><summary>Technical details</summary><pre id="startup-detail"></pre></details>
+        <noscript><p>JavaScript is required to run the editor. Enable it and reload this page.</p></noscript>
+      </div>
+    </main>
+    <main id="workspace" class="workspace" hidden>
       <aside class="library" aria-label="Looks">
         <div class="recipe-modes" role="group" aria-label="Recipe mode"><button id="random" aria-pressed="false" disabled>Random</button><button id="custom" aria-pressed="false" disabled>Custom</button></div>
         <p class="random-hint">Random explores.<br>Custom keeps this mix.</p>
