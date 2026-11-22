@@ -8,9 +8,11 @@ Point, distort, keep something strange. Whatever you make is part of the project
 
 No AI, just decades-old signal-processing algorithms running on your device’s CPU and GPU. Images stay on your device. Special thanks to Fourier for the mathematics. Sorry about what we're doing with it.
 
-The **[web photo editor](https://kirilenkobm.github.io/gleitzsch-site/editor/)** runs on your computer in a WebGPU-capable browser. Open a JPEG/PNG, explore live effects and save a frame as a new PNG. Your photograph stays on your device.
+**iOS:** currently in administrative limbo with Apple, waiting to be able to offer a TestFlight beta. There is no date yet.
 
-In development for **iOS and Android**. An early **Android alpha 4.8.0** is available as a direct APK download: **29.2 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://kirilenkobm.github.io/gleitzsch-site/index.html#availability).
+**Web:** the **[photo editor](https://kirilenkobm.github.io/gleitzsch-site/editor/)** runs on your computer in a WebGPU-capable browser. Open a JPEG/PNG and Random starts exploring the effects. Save a frame as a new PNG. Your photograph and edits stay on your device.
+
+**Android:** an early **alpha 4.8.0** is available as a direct APK download: **29.2 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://kirilenkobm.github.io/gleitzsch-site/index.html#availability).
 
 [Visit the Gleitzsch website](https://kirilenkobm.github.io/gleitzsch-site/index.html).
 
