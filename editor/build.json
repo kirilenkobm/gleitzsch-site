@@ -1,11 +1,11 @@
 {
-  "version": "4.9.2",
+  "version": "4.9.3",
   "website": "https://gleitzsch.com/",
   "platform": "web",
   "revision": "3b7737dc8073fb158d5eba690c7e5b8c4e84d776",
   "dirty": true,
-  "buildId": "be483c0edf83",
-  "builtAt": "2026-11-22T15:04:02.728085+00:00",
+  "buildId": "f311e0dbe8f7",
+  "builtAt": "2026-11-22T15:31:41.818114+00:00",
   "emscripten": "7.0.1",
   "sources": {
     "Gleitzsch/Core/GlitchSettings.swift": "9133a6e9d4f069976e63558b95448c9a58420800968e9c0661bbd29ff216a3e6",
@@ -53,7 +53,7 @@
     "android/third_party/pffft/src/simd/pf_wasm_double.h": "fddc3914c1e9cb67ceb8faa56ad5aa93dc70a0dff6a1ae4cbe817afadc345f24",
     "android/third_party/pffft/src/simd/pf_wasm_float.h": "674b554458a5f4464ac31bac7f72c54abf869d68e1b32025ea15aa547b57236c",
     "android/third_party/pffft/src/sse2neon.h": "b1aa8bdc2dd8ac84697b13aae0034c0d715b0aa25c35000743e6bf9c9ad37953",
-    "shared/Version.xcconfig": "69086e0423fd8e35095439f340d2e1fc9f9c165d864aa7533f7d1a164f017765",
+    "shared/Version.xcconfig": "0378d19ccf5054e5ef69dee2e712f297781ab4e548607fccac9e58750efe5fb4",
     "shared/android-reference/controls.json": "56bed460a22316cbe357f5a521963470625c20ac0523e336d6d1d837e2fa615a",
     "shared/android-reference/effects/crt-encoded.u8": "02387f3d0fb18f89bd923d54abccebc15685f8587ac91b4f4e2ddd8b3e953b83",
     "shared/android-reference/effects/crt-linear.f32": "2fbf34ca57414934e9974b60551441daed354d69330dfe655800b360db38ef23",
