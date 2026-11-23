@@ -12,7 +12,7 @@ No AI, just decades-old signal-processing algorithms running on your device’s 
 
 **Web:** the **[photo editor](https://gleitzsch.com/editor/)** runs on your computer in a WebGPU-capable browser. Open a JPEG/PNG and Random starts exploring the effects. Save a frame as a new PNG. Your photograph and edits stay on your device.
 
-**Android:** an early **alpha 4.9.3** is available as a direct APK download: **29.3 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://gleitzsch.com/index.html#availability).
+**Android:** an early **alpha 4.10.0** is available as a direct APK download: **29.5 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://gleitzsch.com/index.html#availability).
 
 [Visit the Gleitzsch website](https://gleitzsch.com/index.html).
 

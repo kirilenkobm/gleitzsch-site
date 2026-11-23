@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <base href="./r/d08c63780d61/">
+    <base href="./r/867c78257c45/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
@@ -63,13 +63,15 @@
       <aside class="adjustments" aria-label="Effect controls">
         <div class="adjustments-heading"><h2>Adjustments</h2><button id="reset" class="text-button" disabled>Reset effects</button></div>
         <section class="image-adjustment"><label for="photo-exposure">Exposure <output id="exposure-value">0.0 EV</output></label><input id="photo-exposure" type="range" min="-3" max="3" step="0.1" value="0" title="Brightness before text and effects. Double-click to reset." disabled></section>
-        <section id="tape-panel" class="tape-panel" aria-label="Text on tape" hidden>
+        <section id="tape-panel" class="tape-panel" aria-label="Text" hidden>
           <div class="tape-toolbar"><strong>Text</strong><button id="tape-add" class="quiet">+ Add</button><button id="tape-delete" class="quiet">Delete</button><button id="tape-done" class="quiet">Done</button></div>
-          <label for="tape-select">Tape</label><select id="tape-select"></select>
-          <label for="tape-text">Text</label><input id="tape-text" type="text" maxlength="200" placeholder="Write something" autocomplete="off" spellcheck="false">
+          <label for="tape-select">Label</label><select id="tape-select"></select>
+          <label for="tape-style">Style</label><select id="tape-style"><option value="tape">Tape</option><option value="plain">Plain</option></select>
+          <label for="tape-text">Text</label><input id="tape-text" type="text" placeholder="Write something" autocomplete="off" spellcheck="false">
+          <div id="tape-color-control" hidden><label for="tape-color">Text color</label><input id="tape-color" type="color" value="#ffffff"></div>
           <label for="tape-size">Size</label><input id="tape-size" type="range" min="0.015" max="0.15" step="0.001" value="0.045">
           <label for="tape-angle">Angle</label><input id="tape-angle" type="range" min="-180" max="180" step="1" value="0">
-          <p>Up to 100 characters per tape. Drag the outline to move it. Arrow keys move it; Shift makes a larger step. Text goes through the effects with your photo.</p>
+          <p>Tape adds embossed uppercase letters on black tape. Plain keeps letter case and emoji, with a choice of text color and no background. Color emoji keep their own colors. Up to 100 characters per label. Drag the outline to move it. Arrow keys move it; Shift makes a larger step. Text goes through the effects with your photo.</p>
         </section>
         <div id="controls" class="control-groups"></div>
         <div class="adjustments-footer"><span id="engine-state">Starting the editor…</span><span id="fps" hidden>— FPS</span></div>
@@ -87,7 +89,7 @@
       <p><a href="./privacy.html" target="_blank" rel="noopener">Read the web editor’s privacy policy</a>.</p>
       <p>Melt finds an edge and lets it flow downward.</p>
       <p>Random is selected when you first open the editor. Open a photo to start exploring, or choose a preset or Custom. Random follows the phone editor’s recipe journeys. Custom keeps the displayed mix for manual adjustment. Pause and Save hold the shown frame; Continue in Random starts a fresh journey from it.</p>
-      <p>Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text, then drag its outline or adjust its size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
+      <p>Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text and choose Tape or Plain. Plain has no background, preserves letter case and emoji, and lets you choose the text color. Drag the outline or adjust size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
       <p>Photos are opened as a working copy, up to 720 pixels on the shorter side and 2048 on the longer side. PNG exports use that working resolution. Video and saved custom slots are not available in this web version yet.</p>
       <details class="technical-details"><summary>Technical details</summary><pre id="diagnostics"></pre><button id="download-report" class="secondary">Save diagnostics</button></details>
     </dialog>
