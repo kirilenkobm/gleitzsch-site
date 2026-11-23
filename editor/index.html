@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <base href="./r/867c78257c45/">
+    <base href="./r/48df848cd9ba/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
@@ -49,10 +49,11 @@
           </div>
           <div id="loading" class="loading" hidden>Opening photo…</div>
           <div id="drop-hint" class="drop-hint" hidden>Drop to open</div>
+          <div id="rewind-feedback" class="rewind-feedback" hidden><strong id="rewind-step"></strong><progress id="rewind-progress" max="1" value="0"></progress><span id="rewind-hint">Release to keep in Custom</span></div>
           <div id="tape-overlay" class="tape-overlay" hidden></div>
         </div>
         <div class="transport">
-          <div class="view-actions"><button id="pause" class="transport-button" disabled><span id="pause-icon">Ⅱ</span><span id="pause-label">Pause</span></button><button id="original" class="quiet" aria-pressed="false" disabled>Original</button></div>
+          <div class="view-actions"><button id="pause" class="transport-button" disabled><span id="pause-icon">Ⅱ</span><span id="pause-label">Pause</span></button><button id="rewind" class="quiet hold-control" aria-label="Hold to rewind Random" title="Hold to return through the previous three mixes. Release to keep the mix in Custom." aria-pressed="false" disabled>↶ Rewind</button><button id="original" class="quiet" aria-pressed="false" disabled>Original</button></div>
           <label class="speed-control" for="playback-speed"><span>Speed <output id="speed-value">80%</output></span><input id="playback-speed" type="range" min="1" max="100" step="1" value="80" disabled></label>
           <div class="geometry-actions"><button id="axis" class="quiet" disabled>Vertical</button><button id="rotate" class="quiet" disabled aria-label="Rotate photo clockwise">↻ <span>Rotate</span></button></div>
           <button id="save" class="primary save-button" disabled>Save frame <span>PNG</span></button>
@@ -89,7 +90,7 @@
       <p><a href="./privacy.html" target="_blank" rel="noopener">Read the web editor’s privacy policy</a>.</p>
       <p>Melt finds an edge and lets it flow downward.</p>
       <p>Random is selected when you first open the editor. Open a photo to start exploring, or choose a preset or Custom. Random follows the phone editor’s recipe journeys. Custom keeps the displayed mix for manual adjustment. Pause and Save hold the shown frame; Continue in Random starts a fresh journey from it.</p>
-      <p>Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text and choose Tape or Plain. Plain has no background, preserves letter case and emoji, and lets you choose the text color. Drag the outline or adjust size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
+      <p>Hold Rewind to return through the previous three Random mixes, with two seconds per step and a short stop; release to keep the shown mix paused in Custom. Rewind is available only while Random runs. Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text and choose Tape or Plain. Plain has no background, preserves letter case and emoji, and lets you choose the text color. Drag the outline or adjust size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
       <p>Photos are opened as a working copy, up to 720 pixels on the shorter side and 2048 on the longer side. PNG exports use that working resolution. Video and saved custom slots are not available in this web version yet.</p>
       <details class="technical-details"><summary>Technical details</summary><pre id="diagnostics"></pre><button id="download-report" class="secondary">Save diagnostics</button></details>
     </dialog>
