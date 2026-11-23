@@ -5,3 +5,5 @@
 .availability-platforms{display:grid;gap:24px}.availability-platforms .alpha-download{margin-top:0}.hero .status{flex-basis:100%;line-height:1.7}
 
 .site-move{margin:0;padding:12px 24px;background:#20251a;border-bottom:1px solid var(--line);text-align:center;font-size:16px;line-height:1.5}.site-move a{color:var(--acid)}
+
+.demo{padding-bottom:90px}.demo video{display:block;width:100%;max-width:1086px;height:auto;margin:auto;background:#080907;border-radius:3px}@media(max-width:760px){.demo{padding-bottom:45px}}
