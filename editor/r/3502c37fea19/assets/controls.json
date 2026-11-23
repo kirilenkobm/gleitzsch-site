@@ -1,0 +1,801 @@
+{
+  "controls" : [
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "Unstable line timing: drift, bending and tearing.",
+      "icon" : "play.rectangle",
+      "key" : "tracking",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Tracking"
+    },
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "Positive rolls upward; negative rolls downward.",
+      "icon" : "play.rectangle",
+      "key" : "syncLoss",
+      "max" : 1,
+      "min" : -1,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Sync loss"
+    },
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "Up to 0.5: stronger damage at the bottom. Above: damage spreads upward.",
+      "icon" : "play.rectangle",
+      "key" : "headSwitch",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Head switching"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "Color runs left or right. Further from zero adds more blur and delay.",
+      "icon" : "paintpalette",
+      "key" : "chromaSmear",
+      "max" : 1,
+      "min" : -1,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Chroma smear"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "Negative boosts color; positive reduces color.",
+      "icon" : "paintpalette",
+      "key" : "chromaLoss",
+      "max" : 0.80000000000000004,
+      "min" : -0.80000000000000004,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Chroma loss \/ boost"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "False color and crawling fringes around fine details.",
+      "icon" : "paintpalette",
+      "key" : "crossColor",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Cross color"
+    },
+    {
+      "default" : 0,
+      "group" : "Airwaves",
+      "hint" : "Waves and beating from an interfering signal.",
+      "icon" : "waveform.path",
+      "key" : "interference",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Interference"
+    },
+    {
+      "default" : 0,
+      "group" : "Airwaves",
+      "hint" : "Broad bands to fine interference.",
+      "icon" : "waveform.path",
+      "key" : "interferenceFrequency",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+        [
+          "interference"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Interference frequency"
+    },
+    {
+      "default" : 0,
+      "group" : "Airwaves",
+      "hint" : "−1 horizontal · 0 diagonal · +1 vertical.",
+      "icon" : "waveform.path",
+      "key" : "interferenceAngle",
+      "max" : 1,
+      "min" : -1,
+      "namespace" : "signal",
+      "requires" : [
+        [
+          "interference"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Interference angle"
+    },
+    {
+      "default" : 0,
+      "group" : "Airwaves",
+      "hint" : "Noise in the video signal, changing over time.",
+      "icon" : "waveform.path",
+      "key" : "signalNoise",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Signal noise"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Brightness profile and separation of scan lines.",
+      "icon" : "tv",
+      "key" : "crtBeam",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "display",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "CRT beam"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "RGB phosphor structure.",
+      "icon" : "tv",
+      "key" : "crtMask",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "display",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "CRT mask"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Light spreading from bright screen areas.",
+      "icon" : "tv",
+      "key" : "crtGlow",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "display",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "CRT glow"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Afterglow from recent signal states.",
+      "icon" : "tv",
+      "key" : "persistence",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "display",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Persistence"
+    },
+    {
+      "default" : 0,
+      "group" : "RGB & halos",
+      "hint" : "Color channels separate toward the edges.",
+      "icon" : "camera.filters",
+      "key" : "radialRGB",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Radial RGB"
+    },
+    {
+      "default" : 0,
+      "group" : "RGB & halos",
+      "hint" : "Colored halos around bright areas.",
+      "icon" : "camera.filters",
+      "key" : "rainbow",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Rainbow"
+    },
+    {
+      "default" : 0.40000000596046448,
+      "group" : "RGB & halos",
+      "hint" : "Size and softness of the halo.",
+      "icon" : "camera.filters",
+      "key" : "rainbowRadius",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "rainbow"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Rainbow radius"
+    },
+    {
+      "default" : 0.40000000596046448,
+      "group" : "RGB & halos",
+      "hint" : "Radial color separation within the halo.",
+      "icon" : "camera.filters",
+      "key" : "rainbowSpread",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "rainbow"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Rainbow spread"
+    },
+    {
+      "default" : 1,
+      "group" : "Compression",
+      "hint" : "1 = no compression · 0 = maximum loss. Coarse spectral detail and damaged contours.",
+      "icon" : "waveform.path",
+      "key" : "codecQuality",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Codec quality"
+    },
+    {
+      "default" : 0,
+      "group" : "Bending",
+      "hint" : "Shift and bend selected structures.",
+      "icon" : "water.waves",
+      "key" : "displacement",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Displacement"
+    },
+    {
+      "default" : 0,
+      "group" : "Bending",
+      "hint" : "Straight shift → fine ripples → broad waves.",
+      "icon" : "water.waves",
+      "key" : "bendShape",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "displacement"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Bend shape"
+    },
+    {
+      "default" : 0,
+      "group" : "Echo",
+      "hint" : "Repeating contours and rhythmic echoes.",
+      "icon" : "square.stack.3d.up",
+      "key" : "comb",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Comb"
+    },
+    {
+      "default" : 0,
+      "group" : "Echo",
+      "hint" : "Distance between echoes and pattern of the spectral comb.",
+      "icon" : "square.stack.3d.up",
+      "key" : "combSpacing",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "comb",
+          "echoTrain"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Comb spacing"
+    },
+    {
+      "default" : 0,
+      "group" : "Scatter",
+      "hint" : "Scattered fragments and ghostly traces.",
+      "icon" : "sparkles",
+      "key" : "scatter",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Scatter"
+    },
+    {
+      "default" : 0,
+      "group" : "Scatter",
+      "hint" : "Size of the scattering pattern.",
+      "icon" : "sparkles",
+      "key" : "scatterDetail",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "scatter"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Scatter detail"
+    },
+    {
+      "default" : 0,
+      "group" : "Color trails",
+      "hint" : "Color trails vary with detail size.",
+      "icon" : "circle.lefthalf.filled",
+      "key" : "dispersion",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Dispersion"
+    },
+    {
+      "default" : 0,
+      "group" : "Detail",
+      "hint" : "Negative softens detail; positive amplifies it.",
+      "icon" : "waveform",
+      "key" : "spectralGain",
+      "max" : 1,
+      "min" : -1,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Detail gain"
+    },
+    {
+      "default" : 0,
+      "group" : "Detail",
+      "hint" : "0 full FFT · 1 bypass FFT. Signal and spatial effects remain.",
+      "icon" : "waveform",
+      "key" : "originalBlend",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "displacement",
+          "spectralGain",
+          "comb",
+          "scatter",
+          "dispersion",
+          "codecQuality",
+          "echoTrain"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Original blend"
+    },
+    {
+      "default" : 0.5,
+      "group" : "FFT range",
+      "hint" : "From broad structures to fine detail.",
+      "icon" : "waveform",
+      "key" : "frequency",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "displacement",
+          "spectralGain",
+          "comb",
+          "scatter",
+          "dispersion"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Frequency"
+    },
+    {
+      "default" : 0,
+      "group" : "FFT range",
+      "hint" : "Width of the affected frequency range.",
+      "icon" : "waveform",
+      "key" : "bandwidth",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "displacement",
+          "spectralGain",
+          "comb",
+          "scatter",
+          "dispersion"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Bandwidth"
+    },
+    {
+      "default" : 0,
+      "group" : "Echo",
+      "hint" : "Fading ghosts on both sides along the effect direction; Comb spacing sets their distance.",
+      "icon" : "square.stack.3d.up",
+      "key" : "echoTrain",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Echo train"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "Push color into saturated, clipped transitions.",
+      "icon" : "paintpalette",
+      "key" : "colorDrive",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Color drive"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "Change color phase with brightness for hard iridescent transitions.",
+      "icon" : "paintpalette",
+      "key" : "phaseWarp",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Phase warp"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "Rotate the damaged signal colors.",
+      "icon" : "paintpalette",
+      "key" : "colorPhase",
+      "max" : 1,
+      "min" : -1,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Color phase"
+    },
+    {
+      "default" : 0,
+      "group" : "Color signal",
+      "hint" : "Turn brightness transitions into colored fringes.",
+      "icon" : "paintpalette",
+      "key" : "colorLeak",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Color leakage"
+    },
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "Fine horizontal instability of individual scan lines.",
+      "icon" : "play.rectangle",
+      "key" : "lineJitter",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Line jitter"
+    },
+    {
+      "default" : 0,
+      "group" : "Airwaves",
+      "hint" : "Short, sparse colored noise bursts along scan lines.",
+      "icon" : "waveform.path",
+      "key" : "colorStreaks",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Chroma streaks"
+    },
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "A narrow band of displacement, color damage and noise.",
+      "icon" : "play.rectangle",
+      "key" : "tear",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Signal tear"
+    },
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "Rainbow color bursts confined to the tear.",
+      "icon" : "play.rectangle",
+      "key" : "tearRainbow",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+        [
+          "tear"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Tear color"
+    },
+    {
+      "default" : 0.64999997615814209,
+      "group" : "Tape & sync",
+      "hint" : "Vertical center of the tear.",
+      "icon" : "play.rectangle",
+      "key" : "tearPosition",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+        [
+          "tear"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Tear position"
+    },
+    {
+      "default" : 0.11999999731779099,
+      "group" : "Tape & sync",
+      "hint" : "Thickness of the damaged band and its recovery tail.",
+      "icon" : "play.rectangle",
+      "key" : "tearSpread",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+        [
+          "tear"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Tear width"
+    },
+    {
+      "default" : 0,
+      "group" : "Tape & sync",
+      "hint" : "Move the tear through the frame, occasionally splitting and rejoining it.",
+      "icon" : "play.rectangle",
+      "key" : "tearDrift",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+        [
+          "tear"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Tear drift"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Deepen shadows before signal damage.",
+      "icon" : "tv",
+      "key" : "blackPoint",
+      "max" : 0.29999999999999999,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Black point"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Darken midtones while retaining bright highlights.",
+      "icon" : "tv",
+      "key" : "signalContrast",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Signal contrast"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Slight horizontal softening before the CRT raster.",
+      "icon" : "tv",
+      "key" : "signalSoftness",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "signal",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Signal softness"
+    },
+    {
+      "default" : 0,
+      "group" : "Screen & memory",
+      "hint" : "Gently bulge the image while keeping its rectangular edges fixed. Independent of Horizontal \/ Vertical.",
+      "icon" : "tv",
+      "key" : "barrel",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "display",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Barrel"
+    },
+    {
+      "default" : 0,
+      "group" : "Stripes",
+      "hint" : "Turn the image into bright stripes that bend with its details. 0 is off; higher values deepen the transformation.",
+      "icon" : "waveform.path",
+      "key" : "stripes",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Stripes"
+    },
+    {
+      "default" : 0.5,
+      "group" : "Stripes",
+      "hint" : "Sparse to dense stripes, following the effect direction. The same density is kept at every resolution.",
+      "icon" : "waveform.path",
+      "key" : "stripeDensity",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+        [
+          "stripes"
+        ]
+      ],
+      "step" : 0.01,
+      "title" : "Stripe density"
+    },
+    {
+      "default" : 0,
+      "group" : "Melt",
+      "hint" : "Find an edge and let it flow downward.",
+      "icon" : "drop",
+      "key" : "melt",
+      "max" : 1,
+      "min" : 0,
+      "namespace" : "mix",
+      "requires" : [
+
+      ],
+      "step" : 0.01,
+      "title" : "Melt"
+    }
+  ],
+  "schemaVersion" : 1,
+  "spectralFields" : [
+    "displacement",
+    "bendShape",
+    "spectralGain",
+    "comb",
+    "combSpacing",
+    "echoTrain",
+    "scatter",
+    "scatterDetail",
+    "rgbSplit",
+    "dispersion",
+    "frequency",
+    "bandwidth",
+    "originalBlend",
+    "codecQuality"
+  ]
+}
