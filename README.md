@@ -10,9 +10,9 @@ No AI, just decades-old signal-processing algorithms running on your device’s 
 
 **iOS:** currently in administrative limbo with Apple, waiting to be able to offer a TestFlight beta. There is no date yet.
 
-**Web:** the **[photo editor](https://gleitzsch.com/editor/)** runs on your computer in a WebGPU-capable browser. Open a JPEG/PNG and Random starts exploring the effects. Fractals grows self-similar curls from image details, with adjustable strength/detail and its own Random frequency. Random settings controls how often each effect group appears. Save a frame as a new PNG or record a silent MP4/H.264 clip, up to 10 minutes with a 256 MiB encoded-data limit. Your photograph, edits and recordings stay on your device.
+**Web:** the **[photo editor](https://gleitzsch.com/editor/)** runs on your computer in a WebGPU-capable browser. Open a JPEG/PNG and Random starts exploring the effects. Fractals grows self-similar curls from image details, with adjustable strength/detail and its own Random frequency. Random settings controls how often each effect group appears. Custom → Pixel offers Size and four palettes: Classic, Arcade, Quest (DawnBringer 32) and Candy (Sweetie 16). Save a frame as a new PNG or record a silent MP4/H.264 clip, up to 10 minutes with a 256 MiB encoded-data limit. Your photograph, edits and recordings stay on your device.
 
-**Android:** an early **alpha 4.10.1** is available as a direct APK download: **29.5 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://gleitzsch.com/index.html#availability).
+**Android:** an early **alpha 4.10.7** is available as a direct APK download: **29.7 MB · Android 10+ · ARM64**. It is not on Google Play yet; registration, more polished builds and Play testing are next. Video is currently silent, and Pixelate can be slow. See [downloads and current availability](https://gleitzsch.com/index.html#availability).
 
 [Visit the Gleitzsch website](https://gleitzsch.com/index.html).
 
