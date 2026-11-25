@@ -38,6 +38,7 @@ def build():
         if not (
             relative.parts[0] in {"assets", "editor"}
             or (len(relative.parts) == 1 and relative.suffix == ".html")
+            or relative.name in {"robots.txt", "sitemap.xml"}
         ):
             continue
         if relative.suffix in {".py", ".swift", ".kt", ".cpp", ".map"}:
@@ -81,6 +82,9 @@ def build():
         for line in editor_headers.splitlines()
     )
     (OUTPUT / "_headers").write_text(headers + "\n")
+    for required in ("robots.txt", "sitemap.xml"):
+        if not (OUTPUT / required).is_file():
+            raise SystemExit(f"Cloudflare output is missing {required}.")
     print(
         f"Prepared {len(files) + 2} files in {OUTPUT.name}/; "
         f'editor {manifest["version"]} / {manifest["buildId"]}. '

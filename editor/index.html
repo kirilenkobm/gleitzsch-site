@@ -8,6 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark">
     <title>Gleitzsch · Photo editor</title>
+    <meta name="description" content="An online glitch photo editor running in the browser with WebGPU. Photographs are processed on your device. No account and no upload.">
+    <link rel="canonical" href="https://gleitzsch.com/editor/">
+    <meta property="og:title" content="Gleitzsch · Photo editor">
+    <meta property="og:description" content="An online glitch photo editor running in the browser with WebGPU. Photographs are processed on your device. No account and no upload.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gleitzsch.com/editor/">
+    <meta property="og:image" content="https://gleitzsch.com/assets/glitch-still.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="576">
+    <meta property="og:image:alt" content="Glitched still: glowing digits on a dark frame with purple scan bars">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="./styles.css">
     <script defer src="./src/bootstrap.js"></script>
@@ -92,7 +103,7 @@
         <div class="adjustments-footer"><span id="engine-state">Starting the editor…</span><span id="fps" hidden>— FPS</span></div>
       </aside>
     </main>
-    <footer class="bottom-bar"><span><a href="https://gleitzsch.com/" target="_blank" rel="noopener">Gleitzsch</a> · <a href="https://gleitzsch.com/support.html" target="_blank" rel="noopener">Support</a> · <a href="https://t.me/gleitzsch" target="_blank" rel="noopener">Telegram (in Russian)</a> · <a href="./privacy.html" target="_blank" rel="noopener">Privacy</a> · <a href="https://mein.online-impressum.de/gleitzsch/" target="_blank" rel="noopener">Impressum</a></span><span id="version">GLEITZSCH</span></footer>
+    <footer class="bottom-bar"><span><a href="https://gleitzsch.com/" target="_blank" rel="noopener">Gleitzsch</a> · <a href="https://gleitzsch.com/support" target="_blank" rel="noopener">Support</a> · <a href="https://t.me/gleitzsch" target="_blank" rel="noopener">Telegram (in Russian)</a> · <a href="https://gleitzsch.com/editor/privacy" target="_blank" rel="noopener">Privacy</a> · <a href="https://mein.online-impressum.de/gleitzsch/" target="_blank" rel="noopener">Impressum</a></span><span id="version">GLEITZSCH</span></footer>
     <input id="photo-input" type="file" accept="image/jpeg,image/png" hidden>
     <dialog id="about">
       <div class="dialog-heading"><h2>Gleitzsch, in your browser.</h2><button id="close-about" class="quiet" aria-label="Close about">✕</button></div>
@@ -102,7 +113,7 @@
       <p>WebGPU uses your device’s graphics processor, and WebAssembly runs image processing in your browser. Your photographs, recordings and effect settings stay on your device. They are not sent to the developer or uploaded for processing. No account, analytics or tracking scripts are included.</p>
       <p>Once the editor has finished loading, you can keep editing and saving without an internet connection. Reopening the editor offline is not supported yet. Closing or reloading the page clears the current photo and unsaved edit.</p>
       <p>The website host receives ordinary page requests to deliver the editor, such as your IP address. Those requests do not contain your photographs. Optional support links open external services.</p>
-      <p><a href="./privacy.html" target="_blank" rel="noopener">Read the web editor’s privacy policy</a>.</p>
+      <p><a href="https://gleitzsch.com/editor/privacy" target="_blank" rel="noopener">Read the web editor’s privacy policy</a>.</p>
       <p>In Custom → Pixel, Size controls the cells and Palette selects Classic, Arcade, Quest or Candy. Classic keeps the original Pixelate look; Random uses Classic. Other effects can change the final colors. Quest uses <a href="https://pixeljoint.com/forum/forum_posts.asp?TID=16247" target="_blank" rel="noopener noreferrer">DawnBringer 32 by DawnBringer</a>; Candy uses <a href="https://github.com/nesbox/TIC-80/wiki/Palette" target="_blank" rel="noopener noreferrer">Sweetie 16 by GrafxKid</a>. Classic and Arcade are Gleitzsch palettes.</p>
       <p>Fractals grows self-similar curls from image details. Self-similarity adjusts strength; Detail runs from 1 to 2.5. Fractals also has its own frequency in Random settings. Pixelate can participate too: it starts Off, while the other groups start Normal.</p>
       <p>Melt finds an edge and lets it flow downward. In Custom → Melt, Line height prefers a natural edge near the chosen height; Auto returns to automatic selection.</p>
