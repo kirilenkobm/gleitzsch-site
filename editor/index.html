@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <base href="./r/035080b0d208/">
+    <base href="./r/5d6783bc92cf/">
     <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
     <meta name="referrer" content="no-referrer">
@@ -49,9 +49,10 @@
         <div class="library-bottom"><button class="text-button about-processing">On-device processing</button><button id="test-card" class="text-button">Try a test card</button></div>
       </aside>
       <section class="viewer" aria-label="Photo preview">
-        <div class="viewer-heading"><span id="photo-name">NO SOURCE</span><button id="text-toggle" class="quiet" aria-pressed="false" disabled>Text</button><span id="view-mode">READY WHEN YOU ARE</span></div>
-        <div id="drop-zone" class="stage">
+        <div class="viewer-heading"><span id="photo-name">NO SOURCE</span><button id="text-toggle" class="quiet" aria-pressed="false" disabled>Text</button><button id="fullscreen" class="quiet fullscreen-entry" aria-label="Enter fullscreen" aria-keyshortcuts="f" aria-pressed="false" title="Fullscreen (F)" hidden disabled><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button><span id="view-mode">READY WHEN YOU ARE</span></div>
+        <div id="drop-zone" class="stage" tabindex="-1" aria-label="Photo preview">
           <canvas id="preview" aria-label="Processed photo preview" hidden></canvas>
+          <button id="exit-fullscreen" class="fullscreen-exit" aria-label="Exit fullscreen" aria-keyshortcuts="Escape f" title="Exit fullscreen (Esc)" hidden><span aria-hidden="true">×</span></button>
           <div id="empty-state" class="empty-state">
             <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
             <h2>Open a photograph</h2>
@@ -118,6 +119,7 @@
       <p>Fractals grows self-similar curls from image details. Self-similarity adjusts strength; Detail runs from 1 to 2.5. Fractals also has its own frequency in Random settings. Pixelate can participate too: it starts Off, while the other groups start Normal.</p>
       <p>Melt finds an edge and lets it flow downward. In Custom → Melt, Line height prefers a natural edge near the chosen height; Auto returns to automatic selection.</p>
       <p>Random is selected when you first open the editor. Open a photo to start exploring, or choose a preset or Custom. Random follows the phone editor’s recipe journeys. Custom keeps the displayed mix for manual adjustment. Pause and Save hold the shown frame; Continue in Random starts a fresh journey from it.</p>
+      <p>Use Fullscreen (the four-corner icon above the photo) or F to watch the preview without editor panels. Effects and Random keep running. Move the pointer or tap to reveal the exit button; Esc or F also exits. Tab reveals and focuses the exit button. Fullscreen enlarges the existing frame, preserves its proportions and keeps the same processing and export resolution. The button is hidden where the browser does not support fullscreen for the preview, including iPhone browsers without that capability.</p>
       <p>While Random is selected, open Random settings in Adjustments. Choose Off, Less often, Normal or More often for each group; Tear can be excluded independently of Tape. Normal preserves the original balance. Frequency changes appearance rates while effect strength ranges stay the same. Reset at the top restores Pixelate to Off and the other groups to Normal and keeps your current edit, text and exposure. A running journey transitions from the shown mix and starts a new rewind history; paused edits stay paused. These preferences last for this tab and clear on reload or closing the page.</p>
       <p>Hold Rewind to return through the previous three Random mixes, with two seconds per step and a short stop; release to keep the shown mix paused in Custom. Rewind is available only while Random runs. Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text and choose Tape or Plain. Plain has no background, preserves letter case and emoji, and lets you choose the text color. Drag the outline or adjust size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
       <p>Photos are opened as a working copy, up to 720 pixels on the shorter side and 2048 on the longer side. PNG and video exports use that working resolution; video extends an odd edge by one pixel for encoding. Saved custom slots are not available in this web version yet.</p>

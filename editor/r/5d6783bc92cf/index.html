@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; connect-src 'self'; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <title>Gleitzsch · Photo editor</title>
+    <meta name="description" content="An online glitch photo editor running in the browser with WebGPU. Photographs are processed on your device. No account and no upload.">
+    <link rel="canonical" href="https://gleitzsch.com/editor/">
+    <meta property="og:title" content="Gleitzsch · Photo editor">
+    <meta property="og:description" content="An online glitch photo editor running in the browser with WebGPU. Photographs are processed on your device. No account and no upload.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gleitzsch.com/editor/">
+    <meta property="og:image" content="https://gleitzsch.com/assets/glitch-still.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="576">
+    <meta property="og:image:alt" content="Glitched still: glowing digits on a dark frame with purple scan bars">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./src/bootstrap.js"></script>
+    <script defer src="./src/site-move.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="identity"><a class="wordmark" href="https://gleitzsch.com/" target="_blank" rel="noopener" aria-label="Gleitzsch website">GLEITZSCH<span>✳</span></a><span class="edition">PHOTO EDITOR</span></div>
+      <div class="header-actions"><button id="about-button" class="quiet" aria-label="About Gleitzsch" disabled>About</button><button class="primary open-photo" disabled>Open photo <span class="shortcut">⌘O</span></button></div>
+    </header>
+    <main id="startup" class="startup" aria-labelledby="startup-title" aria-busy="true" data-state="loading">
+      <div class="startup-card">
+        <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <h1 id="startup-title">Loading editor…</h1>
+        <p id="startup-message" role="status" aria-live="polite">Preparing effects on your device.</p>
+        <div class="startup-spinner" aria-hidden="true"></div>
+        <p class="startup-help">Taking too long? <a href="./index.html">Reload editor</a>.</p>
+        <button id="startup-retry" class="primary" hidden>Reload editor</button>
+        <details id="startup-details" class="technical-details" hidden><summary>Technical details</summary><pre id="startup-detail"></pre></details>
+        <noscript><p>JavaScript is required to run the editor. Enable it and reload this page.</p></noscript>
+      </div>
+    </main>
+    <main id="workspace" class="workspace" hidden>
+      <aside class="library" aria-label="Looks">
+        <div class="recipe-modes" role="group" aria-label="Recipe mode"><button id="random" aria-pressed="false" disabled>Random</button><button id="custom" aria-pressed="false" disabled>Custom</button></div>
+        <p class="random-hint">Random explores.<br>Custom keeps this mix.</p>
+        <div id="presets" class="preset-list" aria-label="Presets"></div>
+        <div class="library-bottom"><button class="text-button about-processing">On-device processing</button><button id="test-card" class="text-button">Try a test card</button></div>
+      </aside>
+      <section class="viewer" aria-label="Photo preview">
+        <div class="viewer-heading"><span id="photo-name">NO SOURCE</span><button id="text-toggle" class="quiet" aria-pressed="false" disabled>Text</button><button id="fullscreen" class="quiet fullscreen-entry" aria-label="Enter fullscreen" aria-keyshortcuts="f" aria-pressed="false" title="Fullscreen (F)" hidden disabled><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button><span id="view-mode">READY WHEN YOU ARE</span></div>
+        <div id="drop-zone" class="stage" tabindex="-1" aria-label="Photo preview">
+          <canvas id="preview" aria-label="Processed photo preview" hidden></canvas>
+          <button id="exit-fullscreen" class="fullscreen-exit" aria-label="Exit fullscreen" aria-keyshortcuts="Escape f" title="Exit fullscreen (Esc)" hidden><span aria-hidden="true">×</span></button>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-art" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <h2>Open a photograph</h2>
+            <p>Drop a JPEG or PNG here,<br>or choose a file.</p>
+            <button class="primary open-photo">Open photo</button>
+          </div>
+          <div id="loading" class="loading" hidden>Opening photo…</div>
+          <div id="drop-hint" class="drop-hint" hidden>Drop to open</div>
+          <div id="rewind-feedback" class="rewind-feedback" hidden><strong id="rewind-step"></strong><progress id="rewind-progress" max="1" value="0"></progress><span id="rewind-hint">Release to keep in Custom</span></div>
+          <div id="tape-overlay" class="tape-overlay" hidden></div>
+        </div>
+        <div class="transport">
+          <div class="view-actions"><button id="pause" class="transport-button" disabled><span id="pause-icon">Ⅱ</span><span id="pause-label">Pause</span></button><button id="rewind" class="quiet hold-control" aria-label="Hold to rewind Random" title="Hold to return through the previous three mixes. Release to keep the mix in Custom." aria-pressed="false" disabled>↶ Rewind</button><button id="original" class="quiet" aria-pressed="false" disabled>Original</button></div>
+          <label class="speed-control" for="playback-speed"><span>Speed <output id="speed-value">80%</output></span><input id="playback-speed" type="range" min="1" max="100" step="1" value="80" disabled></label>
+          <div class="geometry-actions"><button id="axis" class="quiet" disabled>Vertical</button><button id="rotate" class="quiet" disabled aria-label="Rotate photo clockwise">↻ <span>Rotate</span></button></div>
+          <button id="save" class="primary save-button" disabled>Save frame <span>PNG</span></button>
+        </div>
+        <div class="video-controls" aria-label="Video recording">
+          <button id="record" class="transport-button" disabled><span aria-hidden="true">●</span><span id="record-label">Record video</span></button>
+          <output id="recording-time" aria-label="Recording duration" hidden></output>
+          <span id="recording-help">Up to 10 min · 256 MB · silent</span>
+          <a id="download-video" class="text-button" download hidden>Download video again</a>
+        </div>
+        <div class="viewer-footer"><span id="dimensions">Saves a new PNG. Your original stays unchanged.</span></div>
+        <p id="notice" class="notice" role="status" aria-live="polite"></p>
+      </section>
+      <aside class="adjustments" aria-label="Effect controls">
+        <div class="adjustments-heading"><h2>Adjustments</h2><button id="reset" class="text-button" disabled>Reset effects</button></div>
+        <button id="random-settings-button" class="secondary random-settings-entry" aria-controls="random-settings" aria-expanded="false" hidden>Random settings</button>
+        <section class="image-adjustment"><label for="photo-exposure">Exposure <output id="exposure-value">0.0 EV</output></label><input id="photo-exposure" type="range" min="-3" max="3" step="0.1" value="0" title="Brightness before text and effects. Double-click to reset." disabled></section>
+        <section id="tape-panel" class="tape-panel" aria-label="Text" hidden>
+          <div class="tape-toolbar"><strong>Text</strong><button id="tape-add" class="quiet">+ Add</button><button id="tape-delete" class="quiet">Delete</button><button id="tape-done" class="quiet">Done</button></div>
+          <label for="tape-select">Label</label><select id="tape-select"></select>
+          <label for="tape-style">Style</label><select id="tape-style"><option value="tape">Tape</option><option value="plain">Plain</option></select>
+          <label for="tape-text">Text</label><input id="tape-text" type="text" placeholder="Write something" autocomplete="off" spellcheck="false">
+          <div id="tape-color-control" hidden><label for="tape-color">Text color</label><input id="tape-color" type="color" value="#ffffff"></div>
+          <label for="tape-size">Size</label><input id="tape-size" type="range" min="0.015" max="0.15" step="0.001" value="0.045">
+          <label for="tape-angle">Angle</label><input id="tape-angle" type="range" min="-180" max="180" step="1" value="0">
+          <p>Tape adds embossed uppercase letters on black tape. Plain keeps letter case and emoji, with a choice of text color and no background. Color emoji keep their own colors. Up to 100 characters per label. Drag the outline to move it. Arrow keys move it; Shift makes a larger step. Text goes through the effects with your photo.</p>
+        </section>
+        <section id="random-settings" class="random-settings" aria-label="Random settings" hidden>
+          <button id="close-random-settings" class="quiet">← Back to adjustments</button>
+          <div class="random-settings-heading"><h3>Random settings</h3><button id="reset-random-settings" class="text-button" disabled>Reset</button></div>
+          <p>Choose how often each group appears.</p>
+          <div class="random-settings-list"></div>
+          <span class="sr-only" role="status" aria-live="polite"></span>
+        </section>
+        <div id="controls" class="control-groups"></div>
+        <div class="adjustments-footer"><span id="engine-state">Starting the editor…</span><span id="fps" hidden>— FPS</span></div>
+      </aside>
+    </main>
+    <footer class="bottom-bar"><span><a href="https://gleitzsch.com/" target="_blank" rel="noopener">Gleitzsch</a> · <a href="https://gleitzsch.com/support" target="_blank" rel="noopener">Support</a> · <a href="https://t.me/gleitzsch" target="_blank" rel="noopener">Telegram (in Russian)</a> · <a href="https://gleitzsch.com/editor/privacy" target="_blank" rel="noopener">Privacy</a> · <a href="https://mein.online-impressum.de/gleitzsch/" target="_blank" rel="noopener">Impressum</a></span><span id="version">GLEITZSCH</span></footer>
+    <input id="photo-input" type="file" accept="image/jpeg,image/png" hidden>
+    <dialog id="about">
+      <div class="dialog-heading"><h2>Gleitzsch, in your browser.</h2><button id="close-about" class="quiet" aria-label="Close about">✕</button></div>
+      <p>Open a photograph, explore effects with Random or choose a preset, then keep a moment with Pause and Save frame. Saving creates a separate PNG and leaves your original untouched.</p>
+      <p>Record video captures the processed preview, including text and effects. Stop &amp; download finishes a silent MP4 with H.264 video. Recording stops at 10 minutes or the file-size limit (256 MB), or when you hide the tab. You can adjust effects or pause the preview while recording; opening another photo, rotating and Original are available after recording finishes. Download video again keeps the latest clip available until you start another recording or close the page. MP4 recording requires a browser with H.264 encoding support.</p>
+      <h3>Processing and privacy</h3>
+      <p>WebGPU uses your device’s graphics processor, and WebAssembly runs image processing in your browser. Your photographs, recordings and effect settings stay on your device. They are not sent to the developer or uploaded for processing. No account, analytics or tracking scripts are included.</p>
+      <p>Once the editor has finished loading, you can keep editing and saving without an internet connection. Reopening the editor offline is not supported yet. Closing or reloading the page clears the current photo and unsaved edit.</p>
+      <p>The website host receives ordinary page requests to deliver the editor, such as your IP address. Those requests do not contain your photographs. Optional support links open external services.</p>
+      <p><a href="https://gleitzsch.com/editor/privacy" target="_blank" rel="noopener">Read the web editor’s privacy policy</a>.</p>
+      <p>In Custom → Pixel, Size controls the cells and Palette selects Classic, Arcade, Quest or Candy. Classic keeps the original Pixelate look; Random uses Classic. Other effects can change the final colors. Quest uses <a href="https://pixeljoint.com/forum/forum_posts.asp?TID=16247" target="_blank" rel="noopener noreferrer">DawnBringer 32 by DawnBringer</a>; Candy uses <a href="https://github.com/nesbox/TIC-80/wiki/Palette" target="_blank" rel="noopener noreferrer">Sweetie 16 by GrafxKid</a>. Classic and Arcade are Gleitzsch palettes.</p>
+      <p>Fractals grows self-similar curls from image details. Self-similarity adjusts strength; Detail runs from 1 to 2.5. Fractals also has its own frequency in Random settings. Pixelate can participate too: it starts Off, while the other groups start Normal.</p>
+      <p>Melt finds an edge and lets it flow downward. In Custom → Melt, Line height prefers a natural edge near the chosen height; Auto returns to automatic selection.</p>
+      <p>Random is selected when you first open the editor. Open a photo to start exploring, or choose a preset or Custom. Random follows the phone editor’s recipe journeys. Custom keeps the displayed mix for manual adjustment. Pause and Save hold the shown frame; Continue in Random starts a fresh journey from it.</p>
+      <p>Use Fullscreen (the four-corner icon above the photo) or F to watch the preview without editor panels. Effects and Random keep running. Move the pointer or tap to reveal the exit button; Esc or F also exits. Tab reveals and focuses the exit button. Fullscreen enlarges the existing frame, preserves its proportions and keeps the same processing and export resolution. The button is hidden where the browser does not support fullscreen for the preview, including iPhone browsers without that capability.</p>
+      <p>While Random is selected, open Random settings in Adjustments. Choose Off, Less often, Normal or More often for each group; Tear can be excluded independently of Tape. Normal preserves the original balance. Frequency changes appearance rates while effect strength ranges stay the same. Reset at the top restores Pixelate to Off and the other groups to Normal and keeps your current edit, text and exposure. A running journey transitions from the shown mix and starts a new rewind history; paused edits stay paused. These preferences last for this tab and clear on reload or closing the page.</p>
+      <p>Hold Rewind to return through the previous three Random mixes, with two seconds per step and a short stop; release to keep the shown mix paused in Custom. Rewind is available only while Random runs. Speed changes how quickly Random and live effects move. 80% is the standard pace; use Pause to hold a frame. Exposure adjusts the photo before effects. Add text with Text and choose Tape or Plain. Plain has no background, preserves letter case and emoji, and lets you choose the text color. Drag the outline or adjust size and angle. Text is processed along with the photo. Presets and Reset effects keep your exposure and text; Original shows the untouched photo.</p>
+      <p>Photos are opened as a working copy, up to 720 pixels on the shorter side and 2048 on the longer side. PNG and video exports use that working resolution; video extends an odd edge by one pixel for encoding. Saved custom slots are not available in this web version yet.</p>
+      <details class="technical-details"><summary>Technical details</summary><pre id="diagnostics"></pre><button id="download-report" class="secondary">Save diagnostics</button></details>
+    </dialog>
+  </body>
+</html>
